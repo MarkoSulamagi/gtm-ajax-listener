@@ -1,0 +1,10 @@
+{
+  "name": "gtm-ajax-listener",
+  "version": "1.0.1",
+  "description": "Tag Manager Ajax Listener without JQuery requirement",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marko Sulamägi <marko.sulamagi@gmail.com>",
+  "license": "MIT"
+}
