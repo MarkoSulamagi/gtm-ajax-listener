@@ -1,1 +1,4 @@
 theme: jekyll-theme-tactile
+title: JQueryless Ajax Listener for Google Tag Manager
+description: "Ajax Listener for Google Tag Manager without JQuery or any dependency requirement. Supports all LunaMetrics
+Ajax Listener features."
