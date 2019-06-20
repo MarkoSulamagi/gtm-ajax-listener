@@ -1,0 +1,123 @@
+(function () {
+  'use strict';
+
+  var originalOpen = window.XMLHttpRequest.prototype.open,
+    originalSend = window.XMLHttpRequest.prototype.send;
+
+  function trimSpecialChars(str) {
+    if (str) {
+      return str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+    }
+  }
+
+  function objMap(data, delimiter, splitSeparator, decode) {
+    if (!data) {
+      return {};
+    }
+
+    var obj = {};
+    var arr = data.split(delimiter);
+    for (var i = 0; i < arr.length; i++) {
+      var item = decode ? decodeURIComponent(arr[i]) : arr[i];
+      var pair = item.split(splitSeparator);
+
+      var key = trimSpecialChars(pair[0]);
+      var value = trimSpecialChars(pair[1]);
+
+      if (key && value) {
+        obj[key] = value;
+      }
+    }
+
+    return obj;
+  }
+
+  function getUrlSegments(url) {
+    var fakeElement = document.createElement('a');
+    fakeElement.href = url;
+
+    // IE9+ strips the leading slash from a.pathname
+    var pathName = fakeElement.pathname[0] === '/' ? fakeElement.pathname : '/' + fakeElement.pathname;
+    var queryString = fakeElement.search[0] === '?' ? fakeElement.search.slice(1) : fakeElement.search;
+    var queryParameters = objMap(queryString, '&', '=', true);
+
+    return {
+      fullUrl: fakeElement,
+      hostName: fakeElement.hostname,
+      protocol: fakeElement.protocol,
+      pathName: pathName,
+      queryString: queryString,
+      queryParameters: queryParameters,
+      fragment: fakeElement.hash
+    };
+  }
+
+  function parseJSON(text) {
+    try {
+      return JSON.parse(text);
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function pushEvent(xhr) {
+    var urlSegments = getUrlSegments(xhr.requestUrl);
+    var headers = objMap(xhr.getAllResponseHeaders(), '\n', ':');
+
+    var responseJSON = parseJSON(xhr.responseText);
+
+    dataLayer.push({
+      event: 'ajaxComplete',
+      attributes: {
+        // Return empty strings to prevent accidental inheritance of old data
+        'type': xhr.method || '',
+        'url': urlSegments.fullUrl || '',
+        'queryParameters': urlSegments.queryParameters,
+        'pathname': urlSegments.pathName || '',
+        'hostname': urlSegments.hostName || '',
+        'protocol': urlSegments.protocol || '',
+        'fragment': urlSegments.fragment || '',
+        'statusCode': xhr.status || '',
+        'statusText': xhr.statusText || '',
+        'headers': headers,
+        'timestamp': (new Date).getTime() || '',
+        'contentType': headers['content-type'] || '',
+        'response': (responseJSON ||
+          ((xhr.responseType === '' || xhr.responseType === 'document') && xhr.responseXML) || xhr.responseText || '')
+      }
+    });
+  }
+
+  function openRequest() {
+    this.method = arguments[0];
+    this.requestUrl = arguments[1];
+    originalOpen.apply(this, arguments);
+  }
+
+  function sendRequest() {
+    var originalOnReadyStateChange = this.onreadystatechange || null;
+
+    this.onreadystatechange = function () {
+      if (this.readyState === 4) {
+        pushEvent(this);
+      }
+      if (originalOnReadyStateChange) {
+        return originalOnReadyStateChange.apply(this, arguments);
+      }
+    };
+
+    return originalSend.apply(this, arguments);
+  }
+
+  window.XMLHttpRequest.prototype.open = openRequest;
+  window.XMLHttpRequest.prototype.send = sendRequest;
+
+})();
+/*
+ * v1.0.0
+ * Modified to work without JQuery or any dependencies by Marko Sulamägi https://gtm.marxdev.com
+ * Original version created by the Google Analytics consultants at http://www.lunametrics.com
+ *
+ * Documentation: https://gtm.marxdev.com
+ * Licensed under the MIT License
+ */
