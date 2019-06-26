@@ -1,5 +1,4 @@
 theme: jekyll-theme-tactile
-title: GTM Ajax Listener
-description: "Ajax Listener for Google Tag Manager without JQuery or any dependency requirement. Supports all LunaMetrics
-Ajax Listener features."
+title: AJAX Listener for Google Tag Manager
+description: "Push AJAX events to data layer with GTM"
 google_analytics: UA-142479734-2
