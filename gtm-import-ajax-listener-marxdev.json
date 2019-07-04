@@ -1,0 +1,400 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2019-06-20 02:29:44",
+    "containerVersion": {
+        "path": "accounts/4702219975/containers/12221778/versions/0",
+        "accountId": "4702219975",
+        "containerId": "12221778",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/4702219975/containers/12221778",
+            "accountId": "4702219975",
+            "containerId": "12221778",
+            "name": "gtm.marxdev.com",
+            "publicId": "GTM-5SVV8TT",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1560997291686",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/4702219975/containers/12221778/workspaces?apiLink=container"
+        },
+        "tag": [
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "tagId": "1",
+                "name": "CHTML - AJAX Listener - marxdev",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script id=\"gtm-ajax-listen\" type=\"text/javascript\">\n(function () {\n  'use strict';\n\n  var originalOpen = window.XMLHttpRequest.prototype.open,\n    originalSend = window.XMLHttpRequest.prototype.send;\n\n  function trimSpecialChars(str) {\n    if (str) {\n      return str.replace(/^[\\s\\uFEFF\\xA0]+|[\\s\\uFEFF\\xA0]+$/g, '');\n    }\n  }\n\n  function objMap(data, delimiter, splitSeparator, decode) {\n    if (!data) {\n      return {};\n    }\n\n    var obj = {};\n    var arr = data.split(delimiter);\n    for (var i = 0; i < arr.length; i++) {\n      var item = decode ? decodeURIComponent(arr[i]) : arr[i];\n      var pair = item.split(splitSeparator);\n\n      var key = trimSpecialChars(pair[0]);\n      var value = trimSpecialChars(pair[1]);\n\n      if (key && value) {\n        obj[key] = value;\n      }\n    }\n\n    return obj;\n  }\n\n  function getUrlSegments(url) {\n    var fakeElement = document.createElement('a');\n    fakeElement.href = url;\n\n    // IE9+ strips the leading slash from a.pathname\n    var pathName = fakeElement.pathname[0] === '/' ? fakeElement.pathname : '/' + fakeElement.pathname;\n    var queryString = fakeElement.search[0] === '?' ? fakeElement.search.slice(1) : fakeElement.search;\n    var queryParameters = objMap(queryString, '&', '=', true);\n\n    return {\n      fullUrl: fakeElement,\n      hostName: fakeElement.hostname,\n      protocol: fakeElement.protocol,\n      pathName: pathName,\n      queryString: queryString,\n      queryParameters: queryParameters,\n      fragment: fakeElement.hash\n    };\n  }\n\n  function parseJSON(text) {\n    try {\n      return JSON.parse(text);\n    } catch (err) {\n      return false;\n    }\n  }\n\n  function pushEvent(xhr) {\n    var urlSegments = getUrlSegments(xhr.requestUrl);\n    var headers = objMap(xhr.getAllResponseHeaders(), '\\n', ':');\n\n    var responseJSON = parseJSON(xhr.responseText);\n\n    dataLayer.push({\n      event: 'ajaxComplete',\n      attributes: {\n        // Return empty strings to prevent accidental inheritance of old data\n        'type': xhr.method || '',\n        'url': urlSegments.fullUrl || '',\n        'queryParameters': urlSegments.queryParameters,\n        'pathname': urlSegments.pathName || '',\n        'hostname': urlSegments.hostName || '',\n        'protocol': urlSegments.protocol || '',\n        'fragment': urlSegments.fragment || '',\n        'statusCode': xhr.status || '',\n        'statusText': xhr.statusText || '',\n        'headers': headers,\n        'timestamp': (new Date).getTime() || '',\n        'contentType': headers['content-type'] || '',\n        'response': (responseJSON ||\n          ((xhr.responseType === '' || xhr.responseType === 'document') && xhr.responseXML) || xhr.responseText || '')\n      }\n    });\n  }\n\n  function openRequest() {\n    this.method = arguments[0];\n    this.requestUrl = arguments[1];\n    originalOpen.apply(this, arguments);\n  }\n\n  function sendRequest() {\n    var originalOnReadyStateChange = this.onreadystatechange || null;\n\n    this.onreadystatechange = function () {\n      if (this.readyState === 4) {\n        pushEvent(this);\n      }\n      if (originalOnReadyStateChange) {\n        return originalOnReadyStateChange.apply(this, arguments);\n      }\n    };\n\n    return originalSend.apply(this, arguments);\n  }\n\n  window.XMLHttpRequest.prototype.open = openRequest;\n  window.XMLHttpRequest.prototype.send = sendRequest;\n\n})();\n\n(function () {\n  'use strict';\n\n  var originalOpen = window.XMLHttpRequest.prototype.open,\n    originalSend = window.XMLHttpRequest.prototype.send;\n\n  function trimSpecialChars(str) {\n    if (str) {\n      return str.replace(/^[\\s\\uFEFF\\xA0]+|[\\s\\uFEFF\\xA0]+$/g, '');\n    }\n  }\n\n  function objMap(data, delimiter, splitSeparator, decode) {\n    if (!data) {\n      return {};\n    }\n\n    var obj = {};\n    var arr = data.split(delimiter);\n    for (var i = 0; i < arr.length; i++) {\n      var item = decode ? decodeURIComponent(arr[i]) : arr[i];\n      var pair = item.split(splitSeparator);\n\n      var key = trimSpecialChars(pair[0]);\n      var value = trimSpecialChars(pair[1]);\n\n      if (key && value) {\n        obj[key] = value;\n      }\n    }\n\n    return obj;\n  }\n\n  function getUrlSegments(url) {\n    var fakeElement = document.createElement('a');\n    fakeElement.href = url;\n\n    // IE9+ strips the leading slash from a.pathname\n    var pathName = fakeElement.pathname[0] === '/' ? fakeElement.pathname : '/' + fakeElement.pathname;\n    var queryString = fakeElement.search[0] === '?' ? fakeElement.search.slice(1) : fakeElement.search;\n    var queryParameters = objMap(queryString, '&', '=', true);\n\n    return {\n      fullUrl: fakeElement,\n      hostName: fakeElement.hostname,\n      protocol: fakeElement.protocol,\n      pathName: pathName,\n      queryString: queryString,\n      queryParameters: queryParameters,\n      fragment: fakeElement.hash\n    };\n  }\n\n  function parseJSON(text) {\n    try {\n      return JSON.parse(text);\n    } catch (err) {\n      return false;\n    }\n  }\n\n  function pushEvent(xhr) {\n    var urlSegments = getUrlSegments(xhr.requestUrl);\n    var headers = objMap(xhr.getAllResponseHeaders(), '\\n', ':');\n\n    var responseJSON = parseJSON(xhr.responseText);\n\n    dataLayer.push({\n      event: 'ajaxComplete',\n      attributes: {\n        // Return empty strings to prevent accidental inheritance of old data\n        'type': xhr.method || '',\n        'url': urlSegments.fullUrl || '',\n        'queryParameters': urlSegments.queryParameters,\n        'pathname': urlSegments.pathName || '',\n        'hostname': urlSegments.hostName || '',\n        'protocol': urlSegments.protocol || '',\n        'fragment': urlSegments.fragment || '',\n        'statusCode': xhr.status || '',\n        'statusText': xhr.statusText || '',\n        'headers': headers,\n        'timestamp': (new Date).getTime() || '',\n        'contentType': headers['content-type'] || '',\n        'response': (responseJSON ||\n          ((xhr.responseType === '' || xhr.responseType === 'document') && xhr.responseXML) || xhr.responseText || '')\n      }\n    });\n  }\n\n  function openRequest() {\n    this.method = arguments[0];\n    this.requestUrl = arguments[1];\n    originalOpen.apply(this, arguments);\n  }\n\n  function sendRequest() {\n    var originalOnReadyStateChange = this.onreadystatechange || null;\n\n    this.onreadystatechange = function () {\n      if (this.readyState === 4) {\n        pushEvent(this);\n      }\n      if (originalOnReadyStateChange) {\n        return originalOnReadyStateChange.apply(this, arguments);\n      }\n    };\n\n    return originalSend.apply(this, arguments);\n  }\n\n  window.XMLHttpRequest.prototype.open = openRequest;\n  window.XMLHttpRequest.prototype.send = sendRequest;\n\n})();\n/*\n * v1.0.0\n * Modified to work without JQuery or any dependencies by Marko Sulamägi https://gtm.marxdev.com\n * Original version created by the Google Analytics consultants at http://www.lunametrics.com\n *\n * Documentation: https://gtm.marxdev.com\n * Licensed under the MIT License\n */\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1560997660035",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "parentFolderId": "6",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "variableId": "1",
+                "name": "DLV - attributes.contentType",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "attributes.contentType"
+                    }
+                ],
+                "fingerprint": "1560997291675",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "variableId": "2",
+                "name": "DLV - attributes.fragment",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "attributes.fragment"
+                    }
+                ],
+                "fingerprint": "1560997291676",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "variableId": "3",
+                "name": "DLV - attributes.headers",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "attributes.headers"
+                    }
+                ],
+                "fingerprint": "1560997291677",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "variableId": "4",
+                "name": "DLV - attributes.hostname",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "attributes.hostname"
+                    }
+                ],
+                "fingerprint": "1560997291678",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "variableId": "5",
+                "name": "DLV - attributes.pathname",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "attributes.pathname"
+                    }
+                ],
+                "fingerprint": "1560997291679",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "variableId": "6",
+                "name": "DLV - attributes.protocol",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "attributes.protocol"
+                    }
+                ],
+                "fingerprint": "1560997291679",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "variableId": "7",
+                "name": "DLV - attributes.queryParameters",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "attributes.queryParameters"
+                    }
+                ],
+                "fingerprint": "1560997291680",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "variableId": "8",
+                "name": "DLV - attributes.response",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "attributes.response"
+                    }
+                ],
+                "fingerprint": "1560997291681",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "variableId": "9",
+                "name": "DLV - attributes.statusCode",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "attributes.statusCode"
+                    }
+                ],
+                "fingerprint": "1560997291682",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "variableId": "10",
+                "name": "DLV - attributes.statusText",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "attributes.statusText"
+                    }
+                ],
+                "fingerprint": "1560997291682",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "variableId": "11",
+                "name": "DLV - attributes.timestamp",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "attributes.timestamp"
+                    }
+                ],
+                "fingerprint": "1560997291683",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "variableId": "12",
+                "name": "DLV - attributes.type",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "attributes.type"
+                    }
+                ],
+                "fingerprint": "1560997291684",
+                "parentFolderId": "6"
+            },
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "variableId": "13",
+                "name": "DLV - attributes.url",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "attributes.url"
+                    }
+                ],
+                "fingerprint": "1560997291685",
+                "parentFolderId": "6"
+            }
+        ],
+        "folder": [
+            {
+                "accountId": "4702219975",
+                "containerId": "12221778",
+                "folderId": "6",
+                "name": "AJAX Listener Plugin - marxdev",
+                "fingerprint": "1560997343459"
+            }
+        ],
+        "fingerprint": "0",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/4702219975/containers/12221778/versions/0?apiLink=version"
+    }
+}
