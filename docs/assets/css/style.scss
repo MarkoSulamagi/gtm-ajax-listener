@@ -1,0 +1,53 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+//.inner {
+//  width: 991px;
+//}
+//
+///* All Mobile Sizes (devices and browser) */
+//@media only screen and (max-width: 990px) {
+//  .inner {
+//    width: 94%;
+//    margin: 0 auto;
+//  }
+//}
+
+header h1 {
+  font-size: 36px;
+}
+
+header h2 {
+  margin-top: 15px;
+}
+
+#main_content {
+  h1 {
+    padding-bottom: 15px;
+  }
+}
+
+a.button {
+  width: auto;
+
+  span {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+ol {
+  padding-left: 20px;
+  margin-top: 15px;
+}
+
+#ic-tag-manager span {
+  background: transparent url(../images/ic_tag_manager.svg) 12px 50% no-repeat;
+  background-size: 25px;
+  padding-left: 45px;
+}
+#ic-tag-manager {
+  margin-right: 0;
+}

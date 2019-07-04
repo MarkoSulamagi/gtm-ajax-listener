@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+<head>
+  <meta charset='utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  {% if site.tag_manager %}
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','{{ site.tag_manager }}');</script>
+  <!-- End Google Tag Manager -->
+  {% endif %}
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  <link rel="stylesheet" type="text/css" href="{{ '/assets/css/print.css' | relative_url }}" media="print">
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  {% seo %}
+</head>
+
+<body>
+
+{% if site.tag_manager %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.tag_manager }}"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{% endif %}
+
+<div id="container">
+  <div class="inner">
+
+    <header>
+      <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+      <h2>{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+    </header>
+
+    <section class="clearfix">
+      <a href="{{ site.content.gtm_container }}" id="ic-tag-manager" class="button" target="_blank">
+        <span>Import GTM container</span>
+      </a>
+      <a href="{{ site.content.ajax_listener_script }}" target="_blank"
+         style="top: 15px;position: relative;left: 20px;">
+        <span>or copy the ajax listener tag</span>
+      </a>
+    </section>
+
+    <hr>
+
+    <section id="main_content">
+      {{ content }}
+    </section>
+
+    <footer>
+      {% if site.github.is_project_page %}
+      {{ site.title | default: site.github.repository_name }} is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a><br>
+      Based on <a href="https://www.bounteous.com/insights/2015/08/27/ajax-event-listener-google-tag-manager/?ns=l"
+         target="_blank">Lunametrics ajax listener</a>
+      {% endif %}
+    </footer>
+
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset='utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5SVV8TT');</script>
+  <!-- End Google Tag Manager -->
+  
+
+  <link rel="stylesheet" href="/assets/css/style.css?v=e5048176e3fb8c190da1744249b58b7102a35100">
+  <link rel="stylesheet" type="text/css" href="/assets/css/print.css" media="print">
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>AJAX Listener for Google Tag Manager | Push AJAX events to data layer</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="AJAX Listener for Google Tag Manager" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Push AJAX events to data layer without JQuery" />
+<meta property="og:description" content="Push AJAX events to data layer without JQuery" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="AJAX Listener for Google Tag Manager" />
+<script type="application/ld+json">
+{"@type":"WebSite","headline":"AJAX Listener for Google Tag Manager","url":"http://localhost:4000/","name":"AJAX Listener for Google Tag Manager","description":"Push AJAX events to data layer without JQuery","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body>
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SVV8TT"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div id="container">
+  <div class="inner">
+
+    <header>
+      <h1>AJAX Listener<br> for Google Tag Manager</h1>
+      <h2>Push AJAX events to data layer without JQuery</h2>
+    </header>
+
+    <section class="clearfix">
+      <a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/gtm-import-ajax-listener-marxdev.json" id="ic-tag-manager" class="button" target="_blank">
+        <span>Import GTM container</span>
+      </a>
+      <a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/ajax-listener.html" target="_blank"
+         style="top: 15px;position: relative;left: 20px;">
+        <span>or copy the ajax listener tag</span>
+      </a>
+    </section>
+
+    <hr>
+
+    <section id="main_content">
+      <h1 id="get-started">Get Started</h1>
+
+<h2 id="how-to-configure-new-gtm-account">How to configure new GTM account</h2>
+
+<p>There are 2 options you can use to integrate the script.</p>
+
+<h4 id="option-1-import-tags-and-variables-using-our-container-script-suggested">Option 1: Import tags and variables using our container script (suggested).</h4>
+
+<ol>
+  <li><a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/gtm-import-ajax-listener-marxdev.json" target="_blank">Download container</a></li>
+  <li>Open your account in Google Tag Manager and navigate to <strong>Admin -&gt; Import Container</strong>.</li>
+  <li><strong>Choose the downloaded file</strong> and select <strong>Existing workspace</strong>.</li>
+  <li>Set <strong>Choose an import option</strong> to <strong>Merge</strong> with <strong>Overwrite conflicting tags, triggers and variables</strong>.</li>
+  <li>See that you have <strong>1 new tag</strong> and <strong>13 new variables</strong>.</li>
+  <li>Confirm the import and see the custom HTML tag and variables in your workspace.</li>
+</ol>
+
+<p><strong>Next learn <a href="#how-to-use-ajax-listener">how to use AJAX listener</a>.</strong></p>
+
+<h4 id="option-2-configure-a-custom-html-tag-and-variables-manually">Option 2: Configure a custom HTML tag and variables manually.</h4>
+
+<ol>
+  <li><a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/ajax-listener.html" target="_blank">
+Copy the script</a></li>
+  <li>Create a <strong>custom HTML tag</strong>, name it “AJAX Listener”. Paste the script to HTML input field and set the tag to 
+trigger on <strong>All Pages</strong></li>
+  <li>Use the 
+<a href="https://www.analyticsmania.com/google-tag-manager-ajax-form-tracking" target="_blank">Analytics Mania</a> tutorial
+to set up custom variables.</li>
+</ol>
+
+<h2 id="how-to-switch-from-lunametrics-ajax-listener">How to switch from Lunametrics AJAX listener</h2>
+
+<p>Differences between Lunametrics listener and this script are minimal and switching to use <code class="highlighter-rouge">gtm-ajax-listener</code> 
+shouldn’t take more then a minute.</p>
+
+<p>All GTM variables that were working with Lunametrics keep working as is and there’s no need to change any of them. 
+<strong>The only thing you need to do is switch the custom HTML tag with 
+<a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/ajax-listener.html" target="_blank">
+this script</a></strong>. Once this is done then everything should work as it did before.</p>
+
+<hr />
+
+<h2 id="faq">FAQ</h2>
+
+<h3 id="why-switch-from-lunametrics">Why switch from Lunametrics</h3>
+
+<p>Lunametrics depends on a javascript library called <a href="https://jquery.com/" target="_blank">jQuery</a>. 
+This means that if your website developers haven’t included jQuery in the website code then Lunametrics 
+ajax listener script will not work.</p>
+
+<p>The <code class="highlighter-rouge">gtm-ajax-listener</code> script is dependency free and should work regardless of what technology the website is built 
+with.</p>
+
+<h3 id="how-to-use-ajax-listener">How to use AJAX Listener</h3>
+
+<p>The tag is modified from a frequently used Lunametrics script. Everything you can do with Lunametrics tag, 
+you can also do with <code class="highlighter-rouge">gtm-ajax-listener</code>.</p>
+
+<p>Once the script is configured in GTM then use the following tutorials on how to use it:</p>
+
+<ul>
+  <li><a href="https://www.analyticsmania.com/google-tag-manager-ajax-form-tracking" target="_blank">
+Beginners guide to AJAX Listener - Analytics Mania</a>.<br />
+<em>Skip the part that describes how to create custom HTML tag on GTM with Lunametrics script</em></li>
+  <li><a href="https://medium.com/@marko.sulamagi/how-to-add-lunametrics-ajax-listener-to-single-page-apps-3daf8db3b52f" target="_blank">
+How to add script to Single-Page Apps</a></li>
+</ul>
+
+    </section>
+
+    <footer>
+      
+      AJAX Listener for Google Tag Manager is maintained by <a href="https://github.com/MarkoSulamagi">MarkoSulamagi</a><br>
+      Based on <a href="https://www.bounteous.com/insights/2015/08/27/ajax-event-listener-google-tag-manager/?ns=l"
+         target="_blank">Lunametrics ajax listener</a>
+      
+    </footer>
+
+  </div>
+</div>
+</body>
+</html>

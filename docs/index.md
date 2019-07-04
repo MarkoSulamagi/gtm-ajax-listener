@@ -1,123 +1,69 @@
 ---
 layout: default
+title: "AJAX Listener<br> for Google Tag Manager"
+description: "Push AJAX events to data layer without JQuery"
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+# Get Started
 
-[Link to another page](./another-page.html).
+## How to configure new GTM account
 
-There should be whitespace between paragraphs.
+There are 2 options you can use to integrate the script.
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+#### Option 1: Import tags and variables using our container script (suggested).
 
-# Header 1
+1. <a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/gtm-import-ajax-listener-marxdev.json" 
+target="_blank">Download container</a>
+2. Open your account in Google Tag Manager and navigate to **Admin -> Import Container**.
+4. **Choose the downloaded file** and select **Existing workspace**.
+5. Set **Choose an import option** to **Merge** with **Overwrite conflicting tags, triggers and variables**.
+6. See that you have **1 new tag** and **13 new variables**.
+7. Confirm the import and see the custom HTML tag and variables in your workspace.
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+**Next learn [how to use AJAX listener](#how-to-use-ajax-listener).**
 
-## Header 2
+#### Option 2: Configure a custom HTML tag and variables manually.
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+1. <a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/ajax-listener.html" target="_blank">
+Copy the script</a>
+2. Create a **custom HTML tag**, name it "AJAX Listener". Paste the script to HTML input field and set the tag to 
+trigger on **All Pages**
+3. Use the 
+<a href="https://www.analyticsmania.com/google-tag-manager-ajax-form-tracking" target="_blank">Analytics Mania</a> tutorial
+to set up custom variables. 
 
-### Header 3
+## How to switch from Lunametrics AJAX listener
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+Differences between Lunametrics listener and this script are minimal and switching to use `gtm-ajax-listener` 
+shouldn't take more then a minute. 
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
-
-#### Header 4
-
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
+All GTM variables that were working with Lunametrics keep working as is and there's no need to change any of them. 
+**The only thing you need to do is switch the custom HTML tag with 
+<a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/ajax-listener.html" target="_blank">
+this script</a>**. Once this is done then everything should work as it did before. 
 
 * * *
 
-### Here is an unordered list:
+## FAQ
 
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
+### Why switch from Lunametrics
 
-### And an ordered list:
+Lunametrics depends on a javascript library called <a href="https://jquery.com/" target="_blank">jQuery</a>. 
+This means that if your website developers haven't included jQuery in the website code then Lunametrics 
+ajax listener script will not work.
 
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
+The `gtm-ajax-listener` script is dependency free and should work regardless of what technology the website is built 
+with.
 
-### And a nested list:
+### How to use AJAX Listener
 
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
+The tag is modified from a frequently used Lunametrics script. Everything you can do with Lunametrics tag, 
+you can also do with `gtm-ajax-listener`. 
 
-### Small image
+Once the script is configured in GTM then use the following tutorials on how to use it:
 
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+* <a href="https://www.analyticsmania.com/google-tag-manager-ajax-form-tracking" target="_blank">
+Beginners guide to AJAX Listener - Analytics Mania</a>.  
+_Skip the part that describes how to create custom HTML tag on GTM with Lunametrics script_
+* <a href="https://medium.com/@marko.sulamagi/how-to-add-lunametrics-ajax-listener-to-single-page-apps-3daf8db3b52f" target="_blank">
+How to add script to Single-Page Apps</a>
