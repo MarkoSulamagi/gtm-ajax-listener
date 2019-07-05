@@ -34,11 +34,11 @@ to set up custom variables.
 
 ## How to switch from Lunametrics AJAX listener
 
-Differences between Lunametrics listener and this script are minimal and switching to use `gtm-ajax-listener` 
+Differences between Lunametrics listener and this script are minimal and switching them 
 shouldn't take more then a minute. 
 
 All GTM variables that were working with Lunametrics keep working as is and there's no need to change any of them. 
-**The only thing you need to do is switch the custom HTML tag with 
+**The only thing you need to do is replace the custom HTML tag with 
 <a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/ajax-listener.html" target="_blank">
 this script</a>**. Once this is done then everything should work as it did before. 
 
@@ -66,4 +66,4 @@ Once the script is configured in GTM then use the following tutorials on how to 
 Beginners guide to AJAX Listener - Analytics Mania</a>.  
 _Skip the part that describes how to create custom HTML tag on GTM with Lunametrics script_
 * <a href="https://medium.com/@marko.sulamagi/how-to-add-lunametrics-ajax-listener-to-single-page-apps-3daf8db3b52f" target="_blank">
-How to add script to Single-Page Apps</a>
+How to add ajax listener script to Single-Page Apps</a>
