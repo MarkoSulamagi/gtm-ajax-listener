@@ -15,7 +15,7 @@
   <!-- End Google Tag Manager -->
   
 
-  <link rel="stylesheet" href="/assets/css/style.css?v=356fdcce43398344cfd1f7c105588a52377b4b72">
+  <link rel="stylesheet" href="/assets/css/style.css?v=8561744c65e974c46722f9be04bdd2d0c2309318">
   <link rel="stylesheet" type="text/css" href="/assets/css/print.css" media="print">
   <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -26,14 +26,17 @@
 <meta name="generator" content="Jekyll v3.8.5" />
 <meta property="og:title" content="AJAX Listener for Google Tag Manager" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Push AJAX events to data layer without JQuery" />
-<meta property="og:description" content="Push AJAX events to data layer without JQuery" />
+<meta name="description" content="Push AJAX events to data layer" />
+<meta property="og:description" content="Push AJAX events to data layer" />
 <link rel="canonical" href="http://localhost:4000/" />
 <meta property="og:url" content="http://localhost:4000/" />
 <meta property="og:site_name" content="AJAX Listener for Google Tag Manager" />
 <script type="application/ld+json">
-{"@type":"WebSite","headline":"AJAX Listener for Google Tag Manager","url":"http://localhost:4000/","name":"AJAX Listener for Google Tag Manager","description":"Push AJAX events to data layer without JQuery","@context":"http://schema.org"}</script>
+{"headline":"AJAX Listener for Google Tag Manager","@type":"WebSite","url":"http://localhost:4000/","name":"AJAX Listener for Google Tag Manager","description":"Push AJAX events to data layer","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
+
+
+  <script src=" /assets/js/script.js?v=8561744c65e974c46722f9be04bdd2d0c2309318" defer></script>
 
 </head>
 
@@ -51,15 +54,15 @@
 
     <header>
       <h1>AJAX Listener<br> for Google Tag Manager</h1>
-      <h2>Push AJAX events to data layer without JQuery</h2>
+      <h2>Push AJAX events to data layer</h2>
     </header>
 
     <section class="clearfix">
-      <a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/gtm-import-ajax-listener-marxdev.json" id="ic-tag-manager" class="button" target="_blank">
-        <span>Import GTM container</span>
+      <a href="/downloads/gtm-import-ajax-listener-marxdev.json"
+         id="ic-tag-manager" class="button" download>
+        <span>Download GTM container</span>
       </a>
-      <a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/ajax-listener.html" target="_blank"
-         style="top: 15px;position: relative;left: 20px;">
+      <a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/ajax-listener.html" target="_blank" class="secondary-cta">
         <span>or copy the ajax listener tag</span>
       </a>
     </section>
@@ -67,7 +70,22 @@
     <hr>
 
     <section id="main_content">
-      <h1 id="get-started">Get Started</h1>
+      <h1 id="intro">Intro</h1>
+
+<p>A GTM tag that pushes data from AJAX forms into data layer.</p>
+
+<p>This is an upgraded version of a widely used Lunametrics AJAX listener. Lunametrics’ version of the script has been 
+working very well over the years, but with the rise of the 
+<a href="[https://www.quora.com/What-is-a-single-page-application-in-web-development]">Single Page applications</a> (SPAs) 
+the script oftentimes
+doesn’t work.</p>
+
+<p>This is usually caused by missing jQuery library that Lunametrics’ script depends on. Use the upgraded script to 
+get past this problem.</p>
+
+<p><a href="#why-doesnt-lunametrics-script-work">More info in FAQ</a></p>
+
+<h1 id="get-started">Get Started</h1>
 
 <h2 id="how-to-configure-new-gtm-account">How to configure new GTM account</h2>
 
@@ -75,18 +93,27 @@
 
 <h4 id="option-1-import-tags-and-variables-using-our-container-script-suggested">Option 1: Import tags and variables using our container script (suggested).</h4>
 
+<p>Importing a container script is the quickest way to get started. It will automatically create a custom HTML tag with 
+all the required variables into your GTM account for you to use.</p>
+
 <ol>
-  <li><a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/gtm-import-ajax-listener-marxdev.json" target="_blank">Download container</a></li>
+  <li><a href="/downloads/gtm-import-ajax-listener-marxdev.json" download="">Download container file</a></li>
   <li>Open your account in Google Tag Manager and navigate to <strong>Admin -&gt; Import Container</strong>.</li>
   <li><strong>Choose the downloaded file</strong> and select <strong>Existing workspace</strong>.</li>
-  <li>Set <strong>Choose an import option</strong> to <strong>Merge</strong> with <strong>Overwrite conflicting tags, triggers and variables</strong>.</li>
+  <li>⚠️ Set <strong>Choose an import option</strong> to <strong>Merge</strong> with <strong>Overwrite conflicting tags, triggers and variables</strong>.<br />
+<em>Merging containers will make sure your existing tags, triggers and variables will stay in place and you won’t lose 
+any of your previous configuration.</em></li>
   <li>See that you have <strong>1 new tag</strong> and <strong>13 new variables</strong>.</li>
   <li>Confirm the import and see the custom HTML tag and variables in your workspace.</li>
 </ol>
 
+<p><a href="https://www.bounteous.com/insights/2015/08/26/how-import-container-google-tag-manager/" class="muted" target="_blank">🔗 View more detailed guide on how to import</a></p>
+
 <p><strong>Next learn <a href="#how-to-use-ajax-listener">how to use AJAX listener</a>.</strong></p>
 
 <h4 id="option-2-configure-a-custom-html-tag-and-variables-manually">Option 2: Configure a custom HTML tag and variables manually.</h4>
+
+<p>More advanced users can set up the tag and variables themselves without using the pre-built script.</p>
 
 <ol>
   <li><a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/ajax-listener.html" target="_blank">
@@ -112,19 +139,25 @@ this script</a></strong>. Once this is done then everything should work as it di
 
 <h2 id="faq">FAQ</h2>
 
-<h3 id="why-switch-from-lunametrics">Why switch from Lunametrics</h3>
+<h4 id="why-doesnt-lunametrics-script-work">Why doesn’t Lunametrics script work?</h4>
 
 <p>Lunametrics depends on a javascript library called <a href="https://jquery.com/" target="_blank">jQuery</a>. 
 This means that if your website developers haven’t included jQuery in the website code then Lunametrics 
 ajax listener script will not work.</p>
 
-<p>The <code class="highlighter-rouge">gtm-ajax-listener</code> script is dependency free and should work regardless of what technology the website is built 
+<p>This problem is more common with 
+<a href="https://www.quora.com/What-is-a-single-page-application-in-web-development" target="_blank">Single Page applications</a>.</p>
+
+<p>The easiest way to find out if your website has jquery enabled is to ask the developers. 
+Another option is to use a <a href="https://www.quora.com/How-do-you-know-where-jQuery-is-used-in-a-website" target="_blank">browser console</a></p>
+
+<p>This script is dependency free and should work regardless of what technology the website is built 
 with.</p>
 
-<h3 id="how-to-use-ajax-listener">How to use AJAX Listener</h3>
+<h4 id="how-to-use-ajax-listener">How to use AJAX Listener</h4>
 
-<p>The tag is modified from a frequently used Lunametrics script. Everything you can do with Lunametrics tag, 
-you can also do with <code class="highlighter-rouge">gtm-ajax-listener</code>.</p>
+<p>The tag is modified from a frequently used Lunametrics script. Everything that works with Lunametrics tag 
+will keep working the same way.</p>
 
 <p>Once the script is configured in GTM then use the following tutorials on how to use it:</p>
 
@@ -134,78 +167,31 @@ Beginners guide to AJAX Listener - Analytics Mania</a>.<br />
 <em>Skip the part that describes how to create custom HTML tag on GTM with Lunametrics script</em></li>
   <li><a href="https://medium.com/@marko.sulamagi/how-to-add-lunametrics-ajax-listener-to-single-page-apps-3daf8db3b52f" target="_blank">
 How to add ajax listener script to Single-Page Apps</a></li>
+  <li><a href="https://www.analyticsmania.com/post/google-tag-manager-form-tracking/" target="_blank">
+More detailed guide to using ajax listener</a></li>
 </ul>
 
-    </section>
+<hr />
 
-    <section id="main_content">
-      <hr>
+<h4 id="leave-a-comment-if-you-have-any-questions-or-feedback">Leave a comment if you have any questions or feedback</h4>
 
-      <h3>Contact</h3>
 
-      <form
-        accept-charset="UTF-8"
-        action="https://markosulamagi.wufoo.com/forms/m1jsqy1o15p1rfh/#public"
-        autocomplete="off"
-        class="wufoo topLabel page"
-        enctype="multipart/form-data"
-        id="form2"
-        method="post"
-        name="form2"
-        novalidate
-      >
-
-        <header class="info" id="header">
-          <h2 class="0">Contact</h2>
-          <div class="0"></div>
-        </header>
-        <ul>
-          <li class="notranslate      "
-              id="foli1"><label class="desc" for="Field1" id="title1">
-            Message
-            <span class="req" id="req_1">*</span>
-          </label>
-
-            <div>
-<textarea class="field textarea small"
-          cols="50"
-          id="Field1"
-          name="Field1"
-          onkeyup="" placeholder=""
-
-          required
-          rows="10"
-          spellcheck="true"
-          tabindex="0"></textarea>
-
-            </div>
-          </li>
-          <li class="notranslate      " id="foli2">
-            <label class="desc" for="Field2" id="title2">
-              Email
-              <span class="req" id="req_2">*</span>
-            </label>
-            <div>
-              <input class="field text medium" id="Field2" maxlength="255" name="Field2" placeholder="" required
-                     spellcheck="false" tabindex="0" type="email" value=""/>
-            </div>
-          </li>
-          <li class="buttons ">
-            <div>
-
-              <input class="btTxt submit" id="saveForm" name="saveForm"
-                     type="submit" value="Submit"
-              />
-            </div>
-          </li>
-
-          <li class="hide">
-            <label for="comment">Do Not Fill This Out</label>
-            <textarea cols="1" id="comment" name="comment" rows="1"></textarea>
-            <input id="idstamp" name="idstamp" type="hidden" value="h9EarMgnKaBNaDRbWOpR8nT0XX/BEd6iIQrZaVEe3d0="/>
-          </li>
-        </ul>
-      </form>
+      
+      <div id="disqus_thread" style="margin-top: 15px;"></div>
+      <script>
+        var disqus_config = function () {
+        this.page.url = 'https://gtm.marxdev.com';
+        this.page.identifier = 1; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://https-gtm-marxdev-com.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+      
     </section>
 
     <footer>

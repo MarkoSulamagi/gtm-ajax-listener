@@ -22,6 +22,9 @@
   <![endif]-->
 
   {% seo %}
+
+  <script src=" {{ '/assets/js/script.js?v=' | append: site.github.build_revision | relative_url }}" defer></script>
+
 </head>
 
 <body>
@@ -42,11 +45,11 @@
     </header>
 
     <section class="clearfix">
-      <a href="{{ site.content.gtm_container }}" id="ic-tag-manager" class="button" target="_blank">
-        <span>Import GTM container</span>
+      <a href="/downloads/gtm-import-ajax-listener-marxdev.json"
+         id="ic-tag-manager" class="button" download>
+        <span>Download GTM container</span>
       </a>
-      <a href="{{ site.content.ajax_listener_script }}" target="_blank"
-         style="top: 15px;position: relative;left: 20px;">
+      <a href="{{ site.content.ajax_listener_script }}" target="_blank" class="secondary-cta">
         <span>or copy the ajax listener tag</span>
       </a>
     </section>
@@ -55,6 +58,23 @@
 
     <section id="main_content">
       {{ content }}
+
+      {% if site.comments %}
+      <div id="disqus_thread" style="margin-top: 15px;"></div>
+      <script>
+        var disqus_config = function () {
+        this.page.url = 'https://gtm.marxdev.com';
+        this.page.identifier = 1; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://https-gtm-marxdev-com.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+      {% endif %}
     </section>
 
     <footer>

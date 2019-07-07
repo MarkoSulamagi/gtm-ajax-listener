@@ -183,6 +183,10 @@ footer a:hover { color: #444; }
   .inner { width: 94%; margin: 0 auto; } }
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+html, body, div, span, p { font-family: Helvetica, Arial, serif; font-weight: normal; }
+
+html, body, div, p { color: #373737; }
+
 header h1 { font-size: 36px; }
 
 header h2 { margin-top: 15px; }
@@ -192,8 +196,14 @@ header h2 { margin-top: 15px; }
 a.button { width: auto; }
 a.button span { padding-left: 25px; padding-right: 25px; }
 
-ol { padding-left: 20px; margin-top: 15px; }
+.secondary-cta { top: 15px; position: relative; margin-left: 20px; }
+@media (max-width: 768px) { .secondary-cta { display: block; float: left; padding-bottom: 15px; } }
+
+ol { padding-left: 20px; margin-top: 15px; margin-bottom: 10px; }
 
 #ic-tag-manager span { background: transparent url(../images/ic_tag_manager.svg) 12px 50% no-repeat; background-size: 25px; padding-left: 45px; }
 
 #ic-tag-manager { margin-right: 0; }
+
+a.muted { color: #6d6d6d; font-size: 14px; }
+a.muted:hover { text-decoration: underline; }

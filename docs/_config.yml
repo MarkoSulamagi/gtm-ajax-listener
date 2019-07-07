@@ -4,6 +4,8 @@ description: "Push AJAX events to data layer"
 
 tag_manager: GTM-5SVV8TT
 
+comments: true
+
 content:
   gtm_container: https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/gtm-import-ajax-listener-marxdev.json
   ajax_listener_script: https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/ajax-listener.html
