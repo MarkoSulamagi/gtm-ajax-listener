@@ -52,13 +52,13 @@ Lunametrics depends on a javascript library called <a href="https://jquery.com/"
 This means that if your website developers haven't included jQuery in the website code then Lunametrics 
 ajax listener script will not work.
 
-The `gtm-ajax-listener` script is dependency free and should work regardless of what technology the website is built 
+This script is dependency free and should work regardless of what technology the website is built 
 with.
 
 ### How to use AJAX Listener
 
-The tag is modified from a frequently used Lunametrics script. Everything you can do with Lunametrics tag, 
-you can also do with `gtm-ajax-listener`. 
+The tag is modified from a frequently used Lunametrics script. Everything that works with Lunametrics tag 
+will keep working the same way. 
 
 Once the script is configured in GTM then use the following tutorials on how to use it:
 
