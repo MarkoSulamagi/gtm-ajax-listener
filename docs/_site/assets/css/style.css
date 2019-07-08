@@ -183,6 +183,8 @@ footer a:hover { color: #444; }
   .inner { width: 94%; margin: 0 auto; } }
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 768px) { .inner { width: auto; padding-left: 15px; padding-right: 15px; } }
 html, body, div, span, p { font-family: Helvetica, Arial, serif; font-weight: normal; }
 
 html, body, div, p { color: #373737; }
@@ -199,7 +201,7 @@ a.button span { padding-left: 25px; padding-right: 25px; }
 .secondary-cta { top: 15px; position: relative; margin-left: 20px; }
 @media (max-width: 768px) { .secondary-cta { display: block; float: left; padding-bottom: 15px; } }
 
-ol { padding-left: 20px; margin-top: 15px; margin-bottom: 10px; }
+ol, ul { padding-left: 20px; margin-top: 15px; margin-bottom: 10px; }
 
 #ic-tag-manager span { background: transparent url(../images/ic_tag_manager.svg) 12px 50% no-repeat; background-size: 25px; padding-left: 45px; }
 
@@ -207,3 +209,20 @@ ol { padding-left: 20px; margin-top: 15px; margin-bottom: 10px; }
 
 a.muted { color: #6d6d6d; font-size: 14px; }
 a.muted:hover { text-decoration: underline; }
+
+.about-trigger { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23df3b54' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-arrow-left-circle'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolyline points='12 8 8 12 12 16'%3E%3C/polyline%3E%3Cline x1='16' y1='12' x2='8' y2='12'%3E%3C/line%3E%3C/svg%3E"); background-repeat: no-repeat; background-size: 18px; background-position: 10px 15px; cursor: pointer; font-size: 16px; line-height: 28px; color: #373737; padding: 10px 18px 10px 35px; height: 28px; border: 1px solid #ededed; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2); position: fixed; bottom: 40px; right: 0; border-top-left-radius: 5px; border-bottom-left-radius: 5px; -moz-transition: padding .1s ease-in-out; -webkit-transition: padding .1s ease-in-out; -o-transition: padding .1s ease-in-out; transition: padding .1s ease-in-out; }
+@media only screen and (max-width: 990px) { .about-trigger { background-color: white; } }
+.about-trigger:hover { color: #000; padding-right: 28px; }
+.about-trigger.opened { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%230066ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-arrow-right-circle'%3E%3Ccircle cx='12' cy='12' r='10'%3E%3C/circle%3E%3Cpolyline points='12 16 16 12 12 8'%3E%3C/polyline%3E%3Cline x1='8' y1='12' x2='16' y2='12'%3E%3C/line%3E%3C/svg%3E"); padding-right: 28px; }
+
+.about-container { display: inline-block; color: #000; padding: 25px 10px 15px 10px; font: inherit; border: 1px solid #ededed; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2); position: fixed; bottom: 38px; right: 0; width: 300px; opacity: 1; -moz-transition: height .2s ease, padding .2s ease, opacity .2s ease; -webkit-transition: height .2s ease-in, padding .2s ease, opacity .2s ease; -o-transition: height .2s ease-in, padding .2s ease, opacity .2s ease; transition: height .2s ease-in, padding .2s ease, opacity .2s ease; background: white; border-top-left-radius: 5px; }
+.about-container .content { width: auto; padding: 6px 15px 6px 15px; -moz-transition: opacity .1s ease; -webkit-transition: opacity .1s ease; -o-transition: opacity .1s ease; transition: opacity .1s ease; }
+.about-container .content .author-img { border-radius: 5px; width: 225px; height: 300px; overflow: hidden; margin: 0 auto 15px auto; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2); }
+.about-container .content h4 { margin-top: 0; text-align: center; padding-bottom: 15px; }
+.about-container .content p { text-align: justify; }
+.about-container .content .social { text-align: right; }
+.about-container .content .social a { margin-left: 8px; }
+.about-container.hidden { height: 0; width: 0; opacity: 0; padding: 0; }
+.about-container.hidden .close { display: none; }
+.about-container.hidden .content { padding: 0; display: none; }
+.about-container .close { background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTBweCIgaGVpZ2h0PSIxMHB4IiB2aWV3Qm94PSIwIDAgMTAgMTAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUwLjIgKDU1MDQ3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5DbG9zZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcm1pbi0mYW1wOy1NZWxhbmllIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjk1LjAwMDAwMCwgLTE1LjAwMDAwMCkiIGZpbGw9IiMwMDAwMDAiIGZpbGwtcnVsZT0ibm9uemVybyI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0zMDEuODk1NDU1LDIwIEwzMDQuNzM4MzUyLDE3LjE1NzEwMjMgQzMwNS4wODcyMTYsMTYuODA4MjM4NiAzMDUuMDg3MjE2LDE2LjI0MjYxMzYgMzA0LjczODM1MiwxNS44OTM0NjU5IEwzMDQuMTA2NTM0LDE1LjI2MTY0NzcgQzMwMy43NTc2NywxNC45MTI3ODQxIDMwMy4xOTIwNDUsMTQuOTEyNzg0MSAzMDIuODQyODk4LDE1LjI2MTY0NzcgTDMwMCwxOC4xMDQ1NDU1IEwyOTcuMTU3MTAyLDE1LjI2MTY0NzcgQzI5Ni44MDgyMzksMTQuOTEyNzg0MSAyOTYuMjQyNjE0LDE0LjkxMjc4NDEgMjk1Ljg5MzQ2NiwxNS4yNjE2NDc3IEwyOTUuMjYxNjQ4LDE1Ljg5MzQ2NTkgQzI5NC45MTI3ODQsMTYuMjQyMzI5NSAyOTQuOTEyNzg0LDE2LjgwNzk1NDUgMjk1LjI2MTY0OCwxNy4xNTcxMDIzIEwyOTguMTA0NTQ1LDIwIEwyOTUuMjYxNjQ4LDIyLjg0Mjg5NzcgQzI5NC45MTI3ODQsMjMuMTkxNzYxNCAyOTQuOTEyNzg0LDIzLjc1NzM4NjQgMjk1LjI2MTY0OCwyNC4xMDY1MzQxIEwyOTUuODkzNDY2LDI0LjczODM1MjMgQzI5Ni4yNDIzMywyNS4wODcyMTU5IDI5Ni44MDgyMzksMjUuMDg3MjE1OSAyOTcuMTU3MTAyLDI0LjczODM1MjMgTDMwMCwyMS44OTU0NTQ1IEwzMDIuODQyODk4LDI0LjczODM1MjMgQzMwMy4xOTE3NjEsMjUuMDg3MjE1OSAzMDMuNzU3NjcsMjUuMDg3MjE1OSAzMDQuMTA2NTM0LDI0LjczODM1MjMgTDMwNC43MzgzNTIsMjQuMTA2NTM0MSBDMzA1LjA4NzIxNiwyMy43NTc2NzA1IDMwNS4wODcyMTYsMjMuMTkyMDQ1NSAzMDQuNzM4MzUyLDIyLjg0Mjg5NzcgTDMwMS44OTU0NTUsMjAgWiIgaWQ9IkNsb3NlIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4="); background-repeat: no-repeat; background-position: 50%; background-size: 12px; opacity: .6; width: 32px; height: 32px; position: absolute; right: 0; top: 0; cursor: pointer; }

@@ -11,11 +11,9 @@ A GTM tag that pushes data from AJAX forms into data layer.
 This is an upgraded version of a widely used Lunametrics AJAX listener. Lunametrics' version of the script has been 
 working very well over the years, but with the rise of the 
 [Single Page applications]([https://www.quora.com/What-is-a-single-page-application-in-web-development]) (SPAs) 
-the script oftentimes
-doesn't work.
+the script oftentimes doesn't work. It is usually caused by missing jQuery library that Lunametrics' script depends on. 
 
-This is usually caused by missing jQuery library that Lunametrics' script depends on. Use the upgraded script to 
-get past this problem.
+This script works without any dependencies and should work for all websites.
 
 [More info in FAQ](#why-doesnt-lunametrics-script-work)
 
@@ -40,7 +38,7 @@ any of your previous configuration._
 7. Confirm the import and see the custom HTML tag and variables in your workspace.
 
 <a href="https://www.bounteous.com/insights/2015/08/26/how-import-container-google-tag-manager/" 
-class="muted" target="_blank">🔗 View more detailed guide on how to import</a>
+class="muted" target="_blank">🔗 View more detailed import guide</a>
 
 **Next learn [how to use AJAX listener](#how-to-use-ajax-listener).**
 
@@ -94,7 +92,7 @@ Once the script is configured in GTM then use the following tutorials on how to 
 
 * <a href="https://www.analyticsmania.com/google-tag-manager-ajax-form-tracking" target="_blank">
 Beginners guide to AJAX Listener - Analytics Mania</a>.  
-_Skip the part that describes how to create custom HTML tag on GTM with Lunametrics script_
+_You can skip the part that describes how to create custom HTML tag on GTM with Lunametrics script_
 * <a href="https://medium.com/@marko.sulamagi/how-to-add-lunametrics-ajax-listener-to-single-page-apps-3daf8db3b52f" target="_blank">
 How to add ajax listener script to Single-Page Apps</a>
 * <a href="https://www.analyticsmania.com/post/google-tag-manager-form-tracking/" target="_blank">
