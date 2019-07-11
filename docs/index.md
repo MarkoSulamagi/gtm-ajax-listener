@@ -28,7 +28,7 @@ There are 2 options you can use to integrate the script.
 Importing a container script is the quickest way to get started. It will automatically create a custom HTML tag with 
 all the required variables into your GTM account for you to use. 
 
-1. <a href="/downloads/gtm-import-ajax-listener-marxdev.json" download>Download container file</a>
+1. <a href="/downloads/gtm-import-ajax-listener-marxdev.json" download class="container-tutorial">Download container file</a>
 2. Open your account in Google Tag Manager and navigate to **Admin -> Import Container**.
 4. **Choose the downloaded file** and select **Existing workspace**.
 5. ⚠️ Set **Choose an import option** to **Merge** with **Overwrite conflicting tags, triggers and variables**.  
@@ -46,7 +46,7 @@ class="muted" target="_blank">🔗 View more detailed import guide</a>
 
 More advanced users can set up the tag and variables themselves without using the pre-built script.
 
-1. <a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/ajax-listener.html" target="_blank">
+1. <a href="https://raw.githubusercontent.com/MarkoSulamagi/gtm-ajax-listener/master/ajax-listener.html" class="custom-tag-tutorial" target="_blank">
 Copy the script</a>
 2. Create a **custom HTML tag**, name it "AJAX Listener". Paste the script to HTML input field and set the tag to 
 trigger on **All Pages**
