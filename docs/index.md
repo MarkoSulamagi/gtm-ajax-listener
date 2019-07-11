@@ -10,7 +10,7 @@ A GTM tag that pushes data from AJAX forms into data layer.
 
 This is an upgraded version of a widely used Lunametrics AJAX listener. Lunametrics' version of the script has been 
 working very well over the years, but with the rise of the 
-[Single Page applications]([https://www.quora.com/What-is-a-single-page-application-in-web-development]) (SPAs) 
+[Single Page applications](https://www.quora.com/What-is-a-single-page-application-in-web-development) (SPAs) 
 the script oftentimes doesn't work. It is usually caused by missing jQuery library that Lunametrics' script depends on. 
 
 This script works without any dependencies and should work for all websites.
