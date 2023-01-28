@@ -2,8 +2,6 @@
 
 ### Push AJAX events to data layer
 
-**Download and guide: https://gtm.marxdev.com**
-
 * * *
 
 ### Authors
